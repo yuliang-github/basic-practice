@@ -66,7 +66,11 @@ public class LinkTest {
 //        bothWayLink.addTail(7);
 //        System.err.println(bothWayLink);
 
-        System.err.println(bothWayLink.get(6));
+        //System.err.println(bothWayLink.get(6));
+        System.err.println("----------");
+        System.err.println(bothWayLink.del(7));
+        System.err.println(bothWayLink);
+
     }
 
 

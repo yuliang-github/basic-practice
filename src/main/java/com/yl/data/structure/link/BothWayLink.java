@@ -87,6 +87,64 @@ public class BothWayLink<T> {
         return current.getData();
     }
 
+    /**
+     * 根据下标删除元素
+     * @param index
+     * @return
+     */
+    public T del(int index){
+        if(index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("size is " + size);
+        }
+        Node<T> current = null;
+        if(index<<1 > size){
+            // 从尾部遍历删除元素
+            current = tail;
+            for(int i=size-1;i>index;i--){
+                current = current.getPre();
+            }
+        }else {
+            // 从头部遍历删除元素
+            current = head;
+            for(int i=0;i<index;i++){
+                current = current.getNext();
+            }
+        }
+        Node<T> pre = current.getPre();
+        Node<T> next = current.getNext();
+        if(pre == null && next == null){
+            // pre、next都为空说明只有一个元素
+            head = null;tail = null;
+        }else {
+            if(next == null){
+                /**
+                 * 删除元素的next为空,说明删除的是尾部
+                 *  1.将删除元素的Pre置为tail
+                 *  2.将新tail的next置为空
+                 */
+                tail = pre;
+                tail.next(null);
+            }else if(pre == null){
+                /**
+                 * 删除元素的pre为空,说明删除的是头部
+                 *  1.将删除元素的next置为head
+                 *  2.将新head的pre置为空
+                 */
+                head = next;
+                head.pre(null);
+            }else {
+                /**
+                 * 删除元素的next、pre都不为空,说明删除的是中间元素
+                 *  1.将删除元素的pre和next连接起来
+                 */
+                pre.next(next);
+                next.pre(pre);
+            }
+        }
+        size--;
+        return current.getData();
+    }
+
     private class Node<T>{
         private T data;
 
