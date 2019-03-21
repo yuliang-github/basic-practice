@@ -135,7 +135,7 @@ public class BothWayLink<T> {
             }else {
                 /**
                  * 删除元素的next、pre都不为空,说明删除的是中间元素
-                 *  1.将删除元素的pre和next连接起来
+                 *  1.将删除元素的pre及next连接起来
                  */
                 pre.next(next);
                 next.pre(pre);
