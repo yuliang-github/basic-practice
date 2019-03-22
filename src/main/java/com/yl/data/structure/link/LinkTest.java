@@ -2,6 +2,8 @@ package com.yl.data.structure.link;
 
 import org.junit.Test;
 
+import java.util.Comparator;
+
 /**
  * @author Alex
  * @since 2019/3/21 10:33
@@ -73,5 +75,23 @@ public class LinkTest {
 
     }
 
+    @Test
+    public void sortedBothWayTest(){
+        SortedBothWayLink<Integer> sortedBothWayLink = new SortedBothWayLink<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2 - o1;
+            }
+        });
+        sortedBothWayLink.put(1);
+        sortedBothWayLink.put(3);
+        sortedBothWayLink.put(5);
+        sortedBothWayLink.put(2);
+        sortedBothWayLink.put(6);
+        sortedBothWayLink.put(8);
+        sortedBothWayLink.put(4);
+        sortedBothWayLink.put(7);
+        System.err.println(sortedBothWayLink);
+    }
 
 }
