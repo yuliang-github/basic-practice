@@ -8,7 +8,6 @@ public class CommonTest {
 
     public static void main(String[] args) {
 
-        System.err.println(10000000<<1);
 
     }
 

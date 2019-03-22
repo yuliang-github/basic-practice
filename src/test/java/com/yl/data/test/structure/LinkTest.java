@@ -1,5 +1,9 @@
-package com.yl.data.structure.link;
+package com.yl.data.test.structure;
 
+import com.yl.data.structure.link.BothWayLink;
+import com.yl.data.structure.link.DoubleLink;
+import com.yl.data.structure.link.SingleLink;
+import com.yl.data.structure.link.SortedBothWayLink;
 import org.junit.Test;
 
 import java.util.Comparator;
