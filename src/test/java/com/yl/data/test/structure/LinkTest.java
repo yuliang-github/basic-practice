@@ -6,7 +6,11 @@ import com.yl.data.structure.link.SingleLink;
 import com.yl.data.structure.link.SortedBothWayLink;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
+import java.util.concurrent.Semaphore;
 
 /**
  * @author Alex
@@ -96,6 +100,27 @@ public class LinkTest {
         sortedBothWayLink.put(4);
         sortedBothWayLink.put(7);
         System.err.println(sortedBothWayLink);
+    }
+
+    @Test
+    public void testArray(){
+        List<Integer> list = new ArrayList<>();
+        list.add(1);
+        list.add(2);
+        list.add(4);
+        list.add(4);
+        list.add(6);
+        list.add(5);
+
+        Collections.sort(list, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1-o2>=0?-1:1;
+            }
+        });
+        System.err.println(list.subList(0, 6));
+
+        System.err.println(Long.MAX_VALUE);
     }
 
 }
