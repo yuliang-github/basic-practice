@@ -6,6 +6,9 @@ package com.yl.encrypt;
  */
 public class ByteUtils {
 
+    public static void main(String[] args) {
+        System.err.println(main("s"));
+    }
     /**
      * 获取字符串的二进制字符串
      * @param s
