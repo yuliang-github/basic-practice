@@ -108,7 +108,6 @@ public class LinkTest {
         list.add(1);
         list.add(2);
         list.add(4);
-        list.add(4);
         list.add(6);
         list.add(5);
 
@@ -118,9 +117,8 @@ public class LinkTest {
                 return o1-o2>=0?-1:1;
             }
         });
-        System.err.println(list.subList(0, 6));
+        System.err.println(list.subList(0, 5));
 
-        System.err.println(Long.MAX_VALUE);
     }
 
 }
