@@ -40,4 +40,14 @@ public class ByteTest {
 
         System.out.println(v);
     }
+
+    @Test
+    public void demo_3(){
+
+        boolean b = true;
+
+        System.err.println(b);
+
+    }
+
 }
