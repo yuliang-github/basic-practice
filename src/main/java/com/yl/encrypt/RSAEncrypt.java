@@ -73,7 +73,7 @@ public class RSAEncrypt {
     @Test
     public void demo_01() throws Exception{
 
-        String src = "关关雎鸠";
+        String src = "12345678796y5tr4tyuioytrfthyjukioluiu654678o9i8u76y5467898765467890-98765467890-98765467890-9876567890-98765467890-09";
 
         String publicKeyEncrypt = publicKeyEncryptToHex(src, publicKey);
         System.err.println(publicKeyEncrypt);
