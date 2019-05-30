@@ -67,6 +67,10 @@ public class SingleLink<T> {
         return current.getData();
     }
 
+    public Node<T> getHeadNode(){
+        return this.head;
+    }
+
     /**
      * 根据下标删除元素
      * @param index
@@ -108,7 +112,7 @@ public class SingleLink<T> {
         return sb.append("]").toString();
     }
 
-    private class Node<T> {
+    public static class Node<T> {
         private T data;
 
         private Node<T> next;
