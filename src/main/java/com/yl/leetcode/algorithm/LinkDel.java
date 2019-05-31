@@ -22,7 +22,8 @@ public class LinkDel {
         SingleLink<Integer> l1 = new SingleLink<>();
         l1.put(1);l1.put(2);l1.put(3);l1.put(4);l1.put(5);l1.put(6);
         System.err.println(l1);
-        System.err.println(delOne(l1, 4));
+        System.err.println(delOne_1(l1, 4));
+        System.err.println(delOne_2(l1, 4));
 
     }
 
@@ -31,7 +32,7 @@ public class LinkDel {
      *  1.遍历到链表尾部,得到链表长度size
      *  2.再从链表头部向后移动size - index - 1位
      */
-    public static Integer delOne(SingleLink<Integer> link,int index){
+    public static Integer delOne_1(SingleLink<Integer> link,int index){
         SingleLink.Node<Integer> node = link.getHeadNode();
         int size = 0;
         while (node != null){
@@ -55,6 +56,19 @@ public class LinkDel {
      *  3.将指针X、Y一起向尾部移动,知道X到达链表尾节点
      *  4.此时Y指针指向的节点则为倒数第n个节点Y = X - n
      */
+    public static Integer delOne_2(SingleLink<Integer> link,int index){
+        SingleLink.Node<Integer> node_x = link.getHeadNode();
+        SingleLink.Node<Integer> node_y = link.getHeadNode();
+        int x = 0;
+        while (++x < index){
+            node_x = node_x.getNext();
+        }
+        while (node_x.getNext() != null){
+            node_x = node_x.getNext();
+            node_y = node_y.getNext();
+        }
+        return node_y.getData();
+    }
 
 
 }
