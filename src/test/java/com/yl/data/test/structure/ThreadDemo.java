@@ -1,5 +1,9 @@
 package com.yl.data.test.structure;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 /**
  * @author Alex
  * @since 2019/5/31 16:20
@@ -7,6 +11,13 @@ package com.yl.data.test.structure;
 public class ThreadDemo {
 
     public static void main(String[] args) throws Exception{
+
+        Lock lock = new ReentrantLock();
+        lock.lock();
+
+        ReentrantReadWriteLock readWriteLock = new ReentrantReadWriteLock();
+        ReentrantReadWriteLock.ReadLock readLock = readWriteLock.readLock();
+        readLock.lock();
 
         TheadClass theadClass = new TheadClass();
 
