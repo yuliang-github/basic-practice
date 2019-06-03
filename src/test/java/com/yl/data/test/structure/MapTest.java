@@ -30,5 +30,24 @@ public class MapTest {
     @Test
     public void demo_1(){
         System.err.println(0x7fffffff);
+        System.err.println(Integer.MAX_VALUE);
+
+        int steps = countWays(3);
+        System.err.println(steps);
+
     }
+
+
+
+    int countWays (int n)
+    {if (n<0)
+        return 0;
+        if (n==0)
+            return 1;
+        else
+        {
+            return countWays(n-1)+countWays(n-2)+countWays(n-3);
+        }
+    }
+
 }

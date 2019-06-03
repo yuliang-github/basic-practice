@@ -1,5 +1,8 @@
 package com.yl.data.test.structure;
 
+import org.junit.Test;
+
+import java.net.InetAddress;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -50,6 +53,23 @@ public class ThreadDemo {
         public boolean isFlag(){
             return flag;
         }
+    }
+
+    @Test
+    public void demo_1() throws Exception{
+
+        InetAddress localHost = InetAddress.getLocalHost();
+
+        System.err.println(localHost.getHostName());
+        System.err.println(localHost.getHostAddress());
+
+        InetAddress[] baidus = InetAddress.getAllByName("localhost");
+        for (InetAddress address : baidus) {
+            System.err.println(address);
+        }
+
+        System.err.println("127.0.0.1".hashCode());
+
     }
 
 }
