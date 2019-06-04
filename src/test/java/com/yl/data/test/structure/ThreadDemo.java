@@ -72,4 +72,16 @@ public class ThreadDemo {
 
     }
 
+    @Test
+    public void demo_2() {
+
+        int hash = "miss".hashCode() >> 16;
+
+        System.err.println(hash);
+
+        System.err.println(hash & 15);
+
+        System.err.println(hash & 16);
+    }
+
 }
