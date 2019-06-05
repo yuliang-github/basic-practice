@@ -63,7 +63,7 @@ public class ThreadDemo {
         System.err.println(localHost.getHostName());
         System.err.println(localHost.getHostAddress());
 
-        InetAddress[] baidus = InetAddress.getAllByName("localhost");
+        InetAddress[] baidus = InetAddress.getAllByName("www.baidu.com");
         for (InetAddress address : baidus) {
             System.err.println(address);
         }
@@ -82,6 +82,8 @@ public class ThreadDemo {
         System.err.println(hash & 15);
 
         System.err.println(hash & 16);
+
+        System.err.println(Long.MAX_VALUE);
     }
 
 }
