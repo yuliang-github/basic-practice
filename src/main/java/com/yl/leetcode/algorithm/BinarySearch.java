@@ -18,6 +18,14 @@ public class BinarySearch {
 
         System.err.println(s1);
 
+        int a = 0x7fffffff;
+
+        int b = 1;
+
+        int i = a + b;
+
+        System.err.println(i);
+
     }
 
     /**
@@ -31,7 +39,7 @@ public class BinarySearch {
         int max = arr.length;
         int min = 0;
         while (min <= max){
-            // int mid = (max+min)/2 有bug,假设min和max很大,相加会超出int范围
+            // int mid = (max+min)/2 有bug,假设min和max很大,相加会超出int范围,导致高位被舍弃,而变成负数,超出数组范围
             int mid = min + ((max - min) >> 1);
             if (num > arr[mid]){
                 min = mid + 1;
