@@ -31,7 +31,7 @@ public class BinarySearch {
         int max = arr.length;
         int min = 0;
         while (min <= max){
-            // int mid = (max+min)/2 有bug,假设min和max很大,会超出int范围
+            // int mid = (max+min)/2 有bug,假设min和max很大,相加会超出int范围
             int mid = min + ((max - min) >> 1);
             if (num > arr[mid]){
                 min = mid + 1;
