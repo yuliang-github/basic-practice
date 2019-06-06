@@ -1,5 +1,6 @@
 package com.yl.data.test.structure;
 
+import com.yl.encrypt.ByteUtils;
 import org.junit.Test;
 
 import java.net.InetAddress;
@@ -84,6 +85,22 @@ public class ThreadDemo {
         System.err.println(hash & 16);
 
         System.err.println(Long.MAX_VALUE);
+
     }
 
+    @Test
+    public void demo_3(){
+
+        String s = ByteUtils.byte2hex(new byte[]{-1});
+
+        System.err.println(s);
+
+        byte b = -1;
+
+        String hexString = Integer.toHexString(b);
+        System.err.println(hexString);
+
+        System.err.println(Integer.toHexString(255));
+
+    }
 }

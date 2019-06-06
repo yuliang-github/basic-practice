@@ -53,6 +53,15 @@ public class ByteUtils {
         String hs = "";
         String stmp = "";
         for (int n = 0; n < b.length; n++) {
+            /**
+             * b[n] & 0XFF的意思
+             * toHexString(int i) 如果传入一个负数byte,会将该byte转成int型数据
+             * 假如byte i = -1,二进制为1111 1111;
+             * 现在int j = i,二进制位1111 1111 1111 1111 1111 1111 1111 1111;
+             * 转成十六进制的时候,本来是想转成FF,结果会转成FF FF FF FF
+             * 而j & 0XFF时,会变成0000 0000 0000 0000 0000 0000 1111 1111
+             * 转成十六进制的时候是FF,符合
+             */
             stmp = (Integer.toHexString(b[n] & 0XFF));
             if (stmp.length() == 1)
                 hs = hs + "0" + stmp;
