@@ -4,6 +4,7 @@ import com.yl.encrypt.ByteUtils;
 import org.junit.Test;
 
 import java.net.InetAddress;
+import java.util.Base64;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -102,5 +103,6 @@ public class ThreadDemo {
 
         System.err.println(Integer.toHexString(255));
 
+        System.err.println(new String(Base64.getDecoder().decode("5oGp5aOw")));
     }
 }
