@@ -20,3 +20,5 @@ System.err.println(a == d);
 会直接生成常量'abc'并赋值给e
  */
 System.err.println(a == e);
+
+# 新版本
