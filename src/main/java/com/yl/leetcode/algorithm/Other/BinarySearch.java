@@ -1,4 +1,4 @@
-package com.yl.leetcode.algorithm;
+package com.yl.leetcode.algorithm.Other;
 
 /**
  * @author Alex

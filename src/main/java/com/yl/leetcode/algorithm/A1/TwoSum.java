@@ -1,4 +1,4 @@
-package com.yl.leetcode.algorithm;
+package com.yl.leetcode.algorithm.A1;
 
 import java.util.Arrays;
 import java.util.HashMap;

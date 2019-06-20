@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.net.InetAddress;
 import java.util.Base64;
+import java.util.Stack;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -44,10 +45,15 @@ public class ThreadDemo {
 
             try {
                 Thread.currentThread().sleep(1000);
-                flag = true;
-                System.err.println("set true");
+                throw new RuntimeException("demo");
+                //flag = true;
+                //System.err.println("set true");
+            }catch (RuntimeException e){
+                System.err.println("throw");
+                throw e;
             }catch (Exception e){
-
+                System.err.println("catch");
+                e.printStackTrace();
             }
 
         }
@@ -105,5 +111,16 @@ public class ThreadDemo {
 
         System.err.println(new String(Base64.getDecoder().decode("5oGp5aOw")));
 
+    }
+
+    @Test
+    public void demo_4(){
+        Stack<Integer> stack = new Stack<>();
+        stack.add(1);stack.add(2);stack.add(3);
+        while (!stack.isEmpty()){
+            System.err.println(stack.pop());
+        }
+
+        System.err.println(Integer.parseInt("0F", 16));
     }
 }

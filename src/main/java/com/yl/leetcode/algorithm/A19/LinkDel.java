@@ -1,4 +1,4 @@
-package com.yl.leetcode.algorithm;
+package com.yl.leetcode.algorithm.A19;
 
 import com.yl.data.structure.link.SingleLink;
 
