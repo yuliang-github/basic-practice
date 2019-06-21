@@ -70,5 +70,10 @@ public class LinkDel {
         return node_y.getData();
     }
 
+    /**
+     * 方法三
+     *  1.遍历元素
+     *  2.将元素循环往下next k次,如果得到的结果为null,说明该元素就是倒数第k个元素
+     */
 
 }
