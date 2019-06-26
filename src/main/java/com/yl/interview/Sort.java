@@ -24,6 +24,8 @@ public class Sort {
         selectionSort(selection);
         System.err.println("选择排序" + Arrays.toString(selection));
 
+
+
     }
 
     /**
@@ -100,8 +102,16 @@ public class Sort {
 
     @Test
     public void bubble_test(){
-        int[] clone = arr.clone();
-        bubbleSort(clone);
+        //int[] clone = arr.clone();
+        //bubbleSort(clone);
+
+        int[] clone_1 = new int[]{1,2,5,3,4,6,7};
+        bubbleSort_1(clone_1);
+        System.err.println(Arrays.toString(clone_1));
+
+        int[] clone_2 = new int[]{1,2,5,3,4,6,7};
+        bubbleSort_2(clone_2);
+        System.err.println(Arrays.toString(clone_2));
     }
     /**
      * 冒泡排序
@@ -126,6 +136,61 @@ public class Sort {
             }
         }
     }
+
+    /**
+     * 冒泡排序优化--方案<一>
+     *     使用标识位记录最后一次交换位置,下一次扫描只用扫描到pos位
+     *     使用flag标识本轮扫描是否发生位置交换,若无,说明排序完成clone_1
+     */
+    public static void bubbleSort_1(int[] arr){
+        int pos = 0;
+        for(int i=0; i<arr.length-1; i++ ){
+            boolean exchange = false;
+            for(int j=arr.length-1;j>pos;j--){
+                if(arr[j] < arr[j-1]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = tmp;
+                    exchange = true;
+                    pos = j-1;
+                }
+            }
+            if(!exchange){
+                break;
+            }
+        }
+    }
+    /**
+     * 冒泡排序优化--方案<二>
+     *     每次进行正向和反向两次排序
+     */
+    public static void bubbleSort_2(int[] arr){
+        int low = 0;
+        int hight = arr.length-1;
+        while (low < hight){
+            for(int i=hight; i>low; i--){
+               if(arr[i] >= arr[i-1]){
+                   continue;
+               }
+               int tmp = arr[i];
+               arr[i] = arr[i-1];
+               arr[i-1] = tmp;
+            }
+            low++;
+            for (int i=low; i< hight; i++){
+                if(arr[i] <= arr[i+1]){
+                    continue;
+                }
+                int tmp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = tmp;
+            }
+            hight--;
+
+        }
+
+    }
+
 
     /**
      * 快速排序
