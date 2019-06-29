@@ -52,11 +52,41 @@ public class Array<E> {
      * @param e
      */
     public void add(E e){
+        this.add(e, size);
+    }
+
+    /**
+     * 在数组头部添加元素
+     * @param e
+     */
+    public void addFirst(E e){
+        this.add(e, 0);
+    }
+
+    /**
+     * 在数组尾部添加元素
+     * @param e
+     */
+    public void addLast(E e){
+        this.add(e, size);
+    }
+
+    /**
+     * 在指定下标添加元素,将后面元素后移
+     * @param e
+     * @param index
+     */
+    public void add(E e,int index){
         if(size == data.length){
             // 扩容
             resize(data.length + 1);
         }
-        data[size++] = e;
+        // index之前的元素不变,index后面的元素统一后移一位
+        for(int i=size-1;i>=index;i--){
+            data[i+1] = data[i];
+        }
+        data[index] = e;
+        size++;
     }
 
     private void resize(int minsize){
@@ -108,6 +138,7 @@ public class Array<E> {
         E e = (E)data[index];
         for(int i = index + 1; i < size; i++){
                data[i-1] = data[i];
+               data[i] = null;
         }
         size--;
         return e;
