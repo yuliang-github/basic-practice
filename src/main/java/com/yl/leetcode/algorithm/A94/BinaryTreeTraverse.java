@@ -1,7 +1,5 @@
 package com.yl.leetcode.algorithm.A94;
 
-import com.yl.data.structure.tree.BinaryTree;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
