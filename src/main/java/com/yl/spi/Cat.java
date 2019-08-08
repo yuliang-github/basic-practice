@@ -6,6 +6,7 @@ package com.yl.spi;
  */
 public class Cat implements Animal{
 
+    @Override
     public void say() {
         System.out.println("I am Cat");
     }
