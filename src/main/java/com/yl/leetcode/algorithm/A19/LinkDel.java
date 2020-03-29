@@ -20,11 +20,16 @@ public class LinkDel {
 
     public static void main(String[] args) {
         SingleLink<Integer> l1 = new SingleLink<>();
-        l1.put(1);l1.put(2);l1.put(3);l1.put(4);l1.put(5);l1.put(6);
+        l1.put(1);l1.put(2);
+        l1.put(3);l1.put(4);
+        l1.put(5);l1.put(6);
+        l1.put(7);l1.put(8);
         System.err.println(l1);
-        System.err.println(delOne_1(l1, 4));
-        System.err.println(delOne_2(l1, 4));
+        //System.err.println(delOne_1(l1, 4));
+        //System.err.println(delOne_2(l1, 4));
 
+
+        System.out.println(delBottom3_4(l1));
     }
 
     /**
@@ -75,5 +80,32 @@ public class LinkDel {
      *  1.遍历元素
      *  2.将元素循环往下next k次,如果得到的结果为null,说明该元素就是倒数第k个元素
      */
+
+
+    /**
+     * 删除链表的倒数第3/4个节点
+     */
+    public static Integer delBottom3_4(SingleLink<Integer> link) {
+
+        SingleLink.Node<Integer> fast = link.getHeadNode();
+
+        SingleLink.Node<Integer> slow = link.getHeadNode();
+
+        SingleLink.Node<Integer> head = link.getHeadNode();
+
+        int step = 1;
+
+        while (fast != null) {
+
+            if (++step % 4 == 0) {
+                slow = slow == null ? head : slow.getNext();
+            }
+
+            fast = fast.getNext();
+
+        }
+
+        return slow == null ? null : slow.getData();
+    }
 
 }

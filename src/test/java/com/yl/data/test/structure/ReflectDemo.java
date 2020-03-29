@@ -18,7 +18,7 @@ public class ReflectDemo {
         DemoBean instance = clazz.newInstance();
         boolean mod = Modifier.isPrivate(field.getModifiers());
         System.out.println(mod);
-        //field.setAccessible(true);
+        field.setAccessible(true);
         field.set(instance, "北欧");
 
         System.err.println(instance);
@@ -27,7 +27,7 @@ public class ReflectDemo {
     
     static class DemoBean {
         // private String data;
-        public String data;
+        private String data;
 
         @Override
         public String toString() {

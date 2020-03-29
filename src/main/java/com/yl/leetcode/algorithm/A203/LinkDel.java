@@ -14,7 +14,7 @@ public class LinkDel {
     }
 
     /**
-     * 除链表中等于给定值 val 的所有节点。
+     * 删除链表中等于给定值 val 的所有节点。
      *
      * 示例:
      *
@@ -50,15 +50,21 @@ public class LinkDel {
         if(head == null){
             return null;
         }
-        // head之后的链表
+
+        // head之后的链表删除了val节点后的链表
         ListNode ret = removeElements_1(head.next, val);
+
         if(head.val == val){
+
             //如果head删除,则返回head之后的链表
             return ret;
+
         }else {
-            // 如果head删除,则将head与head之后的链表链接起来
+
+            // 如果head没删除,则将head与head之后的链表链接起来
             head.next = ret;
             return head;
+
         }
     }
 

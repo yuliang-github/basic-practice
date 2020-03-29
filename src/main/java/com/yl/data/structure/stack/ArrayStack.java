@@ -37,7 +37,7 @@ public class ArrayStack<E> implements Stack<E>{
 
     @Override
     public int size() {
-        return 0;
+        return array == null ? 0 : array.size();
     }
 
     @Override

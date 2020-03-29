@@ -24,8 +24,12 @@ public class UpStaris {
             return 0;
         }
         // 注意事项,n == 0返回1疑问？因为包含一种方式,最后一步走完了所有
-        if(n == 0){
+        if(n == 1){
             return 1;
+        } else if( n == 2) {
+            return 2;
+        } else if(n == 3) {
+            return 4;
         }
         return upStaris(n-1)+upStaris(n-2)+upStaris(n-3);
     }

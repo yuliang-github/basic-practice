@@ -97,6 +97,29 @@ public class SingleLink<T> {
         return current.getData();
     }
 
+    /**
+     * 递归添加
+     * @param e
+     */
+    public void addTail(T e) {
+
+        head = add(head, e);
+
+    }
+
+    private Node add(Node head, T e) {
+
+        if (head == null) {
+            head = new Node(e);
+            size++;
+            return head;
+        }
+
+        head.next = add(head.next, e);
+
+        return head;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("[");
