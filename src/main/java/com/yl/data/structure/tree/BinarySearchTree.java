@@ -1,5 +1,7 @@
 package com.yl.data.structure.tree;
 
+import com.yl.data.structure.Queue.ArrayQueue;
+import com.yl.data.structure.Queue.Queue;
 import com.yl.data.structure.stack.ArrayStack;
 import com.yl.data.structure.stack.Stack;
 
@@ -255,6 +257,37 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
         while (res.size() > 0) {
             System.out.println(res.pop());
+        }
+
+    }
+
+    /**
+     * 层序遍历
+     */
+    public void levelTraverse() {
+
+        if (root == null) {
+            return;
+        }
+
+        Queue<Node> queue = new ArrayQueue<>();
+
+        queue.enqueue(root);
+
+        while (!queue.isEmpty()) {
+
+            Node node = queue.dequeue();
+
+            System.out.println(node);
+
+            if (node.left != null) {
+                queue.enqueue(node.left);
+            }
+
+            if (node.right != null) {
+                queue.enqueue(node.right);
+            }
+
         }
 
     }

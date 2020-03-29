@@ -28,6 +28,8 @@ public class TreeDemo {
         tree.postTraverse();
         System.out.println("||||||||||");
         tree.postTraverseNR();
+        System.out.println("---------");
+        tree.levelTraverse();
 
     }
 

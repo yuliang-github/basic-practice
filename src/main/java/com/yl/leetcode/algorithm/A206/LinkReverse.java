@@ -17,30 +17,51 @@ public class LinkReverse {
 
     public static void main(String[] args) {
 
-        ListNode listNode = new ListNode(new int[]{1,2,3,4,5,6});
+        ListNode listNode = new ListNode(new int[]{1,2,3,4});
         System.out.println(listNode);
 
-        System.out.println(reverseList(listNode));
+        ListNode reverseList = reverseList(listNode);
+
+        System.out.println(reverseList);
 
 
     }
 
+    /**
+     * 链表反转
+     * 1->2->3->4
+     * 将链表拆分成小链表 1,2,(3->4)
+     * 1.反转小链表 1->2->(3<-4)
+     * 2.继续反转 1->(2<-3<-4)
+     * 3.继续反转 (1<-2<-3<-4)
+     * @param head
+     * @return
+     */
     public static ListNode reverseList(ListNode head){
+
         if(head == null || head.next == null){
             return head;
         }
-        // 找到倒数第二个节点
+
+        // 将链表拆分成长度为2的小链表
         if(head.next.next == null){
+
             // 指针反转
             head.next.next = head;
-            return head.next;
+            ListNode node = head.next;
+            head.next = null;
+            return node;
+
         }else {
-            // 最终返回的是倒数第一个节点,也就是反转后的头结点
+
+            // 反转后的链表
             ListNode node = reverseList(head.next);
+
             // 此处的head应该为倒数第三个节点
             // head.next为倒数第二个节点,反转指针
             head.next.next = head;
             head.next = null;
+
             return node;
         }
     }
