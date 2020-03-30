@@ -292,4 +292,131 @@ public class BinarySearchTree<E extends Comparable<E>> {
 
     }
 
+    /**
+     * 删除指定元素
+     * @param e
+     */
+    public void del(E e) {
+        root = del(root ,e);
+    }
+
+    private Node del(Node root, E e) {
+
+        if (root == null) {
+            return null;
+        }
+
+        if (root.e.compareTo(e) == 0) {
+
+            /**
+             * 匹配上了,删除root结点
+             * case root没有右子树,则将左子树移到根节点
+             * case root没有左子树,则将右子树移到跟结点
+             * case root左右子树都有
+             *  1.将左子树中最大的结点替换root
+             *  2.将右子树中最小的结点替换root
+             */
+
+            if (root.right == null) {
+                Node left = root.left;
+                root.left = null;
+                size--;
+                return left;
+            } else if (root.left == null) {
+                Node right = root.right;
+                root.right = null;
+                size--;
+                return right;
+            } else {
+
+                // 左右子树都有，返回的是替换结点
+
+                // 找到右子树最小结点
+                Node min = getMin(root.right);
+
+                // 删除右子树最小结点
+                Node rightNode = delMin(root.right);
+
+                min.left = root.left;
+                min.right = rightNode;
+
+                root.left = null;
+                root.right = null;
+
+                return min;
+            }
+
+        } else if (root.e.compareTo(e) > 0) {
+
+            root.left = del(root.left, e);
+
+            return root;
+
+        } else {
+
+            root.right = del(root.right, e);
+
+            return root;
+
+        }
+
+    }
+
+    public void delMin() {
+        delMin(root);
+    }
+
+    private Node delMin(Node root) {
+
+        if (root == null) {
+            return null;
+        }
+
+        if (root.left == null) {
+
+            Node right = root.right;
+            root.right = null;
+            size--;
+            return right;
+        } else {
+            Node node = delMin(root.left);
+            root.left = node;
+            return root;
+        }
+
+    }
+
+    public Node delMax(Node root) {
+        return null;
+    }
+
+    private Node getMin(Node root) {
+
+        if (root == null) {
+            return null;
+        }
+
+        if (root.left != null) {
+            return getMin(root.left);
+        } else {
+            return root;
+        }
+
+    }
+
+
+    private Node getMax(Node root) {
+
+        if (root == null) {
+            return null;
+        }
+
+        if (root.right != null) {
+            return getMax(root.right);
+        } else {
+            return root;
+        }
+
+    }
+
 }

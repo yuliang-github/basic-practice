@@ -31,6 +31,18 @@ public class TreeDemo {
         System.out.println("---------");
         tree.levelTraverse();
 
+        System.out.println("---------");
+
+        BinarySearchTree<Integer> tree_1 = new BinarySearchTree<>();
+        tree_1.add(5);
+        tree_1.add(3);
+        tree_1.add(6);
+        tree_1.add(8);
+        tree_1.add(4);
+        tree_1.add(2);
+        tree_1.delMin();
+        tree_1.levelTraverse();
+
     }
 
 
